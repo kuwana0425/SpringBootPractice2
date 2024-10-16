@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title>お問い合わせ詳細</title>
+</head>
+<body>
+<h1>お問い合わせ詳細</h1>
+<div>
+    <label>お問い合わせID: </label>
+    <span th:text="${contact.id}">1</span>
+</div>
+<div>
+    <label>姓: </label>
+    <span th:text="${contact.lastName}">姓</span>
+</div>
+<div>
+    <label>名: </label>
+    <span th:text="${contact.firstName}">名</span>
+</div>
+<div>
+    <label>メールアドレス: </label>
+    <span th:text="${contact.email}">メールアドレス</span>
+</div>
+<div>
+    <label>電話番号: </label>
+    <span th:text="${contact.phone}">郵便番号</span>
+</div>
+<div>
+    <label>郵便番号: </label>
+    <span th:text="${contact.zipCode}">電話番号</span>
+</div>
+<div>
+    <label>住所: </label>
+    <span th:text="${contact.address}">住所</span>
+</div>
+<div>
+    <label>建物名: </label>
+    <span th:text="${contact.buildingName}">建物名</span>
+</div>
+<div>
+    <label>お問い合わせ種別: </label>
+    <span th:text="${contact.contactType}">建物名</span>
+</div>
+<div>
+    <label>内容: </label>
+    <span th:text="${contact.body}">内容</span>
+</div>
+<div>
+    <label>作成日時: </label>
+    <span th:text="${contact.created}">作成日時</span>
+</div>
+<div>
+    <label>更新日時: </label>
+    <span th:text="${contact.updated}">更新日時</span>
+</div>
+
+<table>
+    <tr>
+        <td>
+            <a href="#" th:href="@{'/admin/contacts/' + ${contact.id} + '/edit'}">
+                <button type="button">編集</button>
+            </a>
+        </td>
+        <td>
+            <form th:action="@{'/admin/contacts/' + ${contact.id} + '/delete'}" method="post">
+                <input type="submit" value="削除">
+            </form>
+        </td>
+        <td>
+            <a href="#" th:href="@{/admin/contacts}">
+                <button type="button">戻る</button>
+            </a>
+        </td>
+        <td>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="ログアウト">
+			</form>
+		</td>
+    </tr>
+</table>
+</body>
+</html>
